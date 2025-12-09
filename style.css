@@ -1,0 +1,160 @@
+:root {
+  --bg-gradient-start: #0f4c75;
+  --bg-gradient-end: #14b8a6;
+  --card-bg: #0b2e45cc;
+  --text-primary: #e8f5ff;
+  --text-secondary: #c7d7e5;
+  --accent: #22d3ee;
+  --btn-primary: #14b8a6;
+  --btn-primary-hover: #0fa89a;
+  --btn-outline: #e8f5ff;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  --radius: 18px;
+  --transition: 180ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-primary);
+  padding: 24px;
+}
+
+.app {
+  width: min(960px, 100%);
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #b3ecff;
+  margin: 0 0 4px;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 0;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.quote-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: clamp(18px, 3vw, 28px);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+  display: grid;
+  gap: 18px;
+  animation: fadeUp 220ms ease;
+}
+
+.quote-text {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: clamp(20px, 4vw, 26px);
+  line-height: 1.5;
+}
+
+.quote-author {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+  background: transparent;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn.primary {
+  background: var(--btn-primary);
+  color: #053541;
+  box-shadow: 0 12px 24px rgba(20, 184, 166, 0.35);
+}
+
+.btn.primary:hover {
+  background: var(--btn-primary-hover);
+}
+
+.btn.ghost {
+  border-color: #1bb5d1;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn.outline {
+  border-color: var(--btn-outline);
+  color: var(--btn-outline);
+}
+
+.btn.outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 540px) {
+  body {
+    padding: 16px;
+  }
+
+  .quote-card {
+    padding: 18px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}
+

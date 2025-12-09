@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InspireMe! Random Quote Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">InspireMe!</p>
+      <h1 class="title">Random Quote Generator</h1>
+      <p class="subtitle">Temukan inspirasi baru setiap klik.</p>
+    </header>
+
+    <section class="quote-card" role="region" aria-live="polite">
+      <div class="quote-text" id="quoteText">Memuat kutipan...</div>
+      <div class="quote-author" id="quoteAuthor">—</div>
+      <div class="actions">
+        <button id="newQuoteBtn" class="btn primary">Generate Kutipan Baru</button>
+        <button id="copyBtn" class="btn ghost">Salin Kutipan</button>
+        <button id="tweetBtn" class="btn outline">Bagikan ke Twitter</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
