@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TripMate - Perencana Perjalanan Mini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">TripMate</p>
+      <h1 class="title">Perencana Perjalanan Mini</h1>
+      <p class="subtitle">Catat destinasi & aktivitas, jadwalkan, dan kelola rencana Anda.</p>
+    </header>
+
+    <section class="planner-grid">
+      <!-- Form Tambah -->
+      <div class="card create-panel">
+        <div class="panel-header">
+          <h2 class="form-title">Tambah Aktivitas / Destinasi</h2>
+        </div>
+        <form id="addActivityForm" class="form">
+          <div class="form-group">
+            <label for="activityName">Nama Aktivitas/Destinasi <span class="char-count">(<span id="nameCharCount">0</span>/100)</span></label>
+            <input type="text" id="activityName" required placeholder="Contoh: Kunjungi Museum" maxlength="100">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="activityDate">Tanggal</label>
+              <input type="date" id="activityDate" required>
+            </div>
+            <div class="form-group">
+              <label for="activityLocation">Lokasi <span class="char-count">(<span id="locationCharCount">0</span>/80)</span></label>
+              <input type="text" id="activityLocation" required placeholder="Bandung, ID" maxlength="80">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="activityNotes">Catatan (opsional) <span class="char-count">(<span id="notesCharCount">0</span>/500)</span></label>
+            <textarea id="activityNotes" rows="3" placeholder="Jam kunjungan, tiket, dll." maxlength="500"></textarea>
+          </div>
+          <button type="submit" class="btn primary full-width">Simpan ke Jadwal</button>
+        </form>
+      </div>
+
+      <!-- Jadwal -->
+      <div class="card schedule-panel">
+        <div class="panel-header">
+          <div>
+            <h2 class="form-title">Jadwal Perjalanan</h2>
+          </div>
+          <div class="badge" id="activityCount">0 aktivitas</div>
+        </div>
+        <div class="controls">
+          <div class="control-group">
+            <label for="filterDate">Filter tanggal</label>
+            <input type="date" id="filterDate">
+          </div>
+          <div class="control-group">
+            <label for="searchText">Cari aktivitas/lokasi</label>
+            <input type="text" id="searchText" placeholder="Cari..." maxlength="100">
+          </div>
+          <button id="clearFilters" class="btn ghost">Reset Filter</button>
+        </div>
+        <div id="scheduleList" class="schedule-list" role="list" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Edit -->
+  <div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="form-title">Ubah Aktivitas</h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+      <form id="editActivityForm">
+        <input type="hidden" id="editActivityId">
+        <div class="form-group">
+          <label for="editActivityName">Nama Aktivitas/Destinasi <span class="char-count">(<span id="editNameCharCount">0</span>/100)</span></label>
+          <input type="text" id="editActivityName" required maxlength="100">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="editActivityDate">Tanggal</label>
+            <input type="date" id="editActivityDate" required>
+          </div>
+          <div class="form-group">
+            <label for="editActivityLocation">Lokasi <span class="char-count">(<span id="editLocationCharCount">0</span>/80)</span></label>
+            <input type="text" id="editActivityLocation" required maxlength="80">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="editActivityNotes">Catatan <span class="char-count">(<span id="editNotesCharCount">0</span>/500)</span></label>
+          <textarea id="editActivityNotes" rows="3" maxlength="500"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancelEditBtn" class="btn ghost">Batal</button>
+          <button type="submit" class="btn primary">Simpan Perubahan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
